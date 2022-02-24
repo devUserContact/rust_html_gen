@@ -1,12 +1,13 @@
 extern crate rand;
 
+use std::fs;
 use std::io::Write;
-use std::fs::OpenOptions;
 use rand::thread_rng;
 use rand::Rng;
 
 fn main() {
-    
+    fs::create_dir("output")
+        .expect("unable to create directory");
     let mut ofile = OpenOptions::new()
         .create_new(true)
         .append(true)
